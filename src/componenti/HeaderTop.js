@@ -2,13 +2,13 @@ import "../CSS/header.css";
 import "../CSS/utily.css";
 import iconaTrello from "../assest/icons/iconaTrello.svg";
 
-export const Header = () => {
+export const HeaderTop = () => {
   return (
     <>
-      <header className="flex">
+      <div className="headerTop flex">
         <img src={iconaTrello} alt="icona Trello" />
-        <h3>Clone Trello</h3>
-      </header>
+        <h1>Clone Trello</h1>
+      </div>
     </>
   );
 };

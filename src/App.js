@@ -1,6 +1,7 @@
 import "./App.css";
 import "./CSS/generalEroot.css";
-import { Header } from "./componenti/Header.js";
+import { HeaderTop } from "./componenti/HeaderTop.js";
+import { HeaderBottom } from "./componenti/HeaderBottom.js";
 
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
       {/* Scheda */}
       <div className="scheda">
         {/* Header */}
-        <Header />
+        <HeaderTop />
+        <HeaderBottom />
       </div>
     </div>
   );

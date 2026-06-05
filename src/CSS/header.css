@@ -1,18 +1,29 @@
-header {
-  background-color: var(--bg-header);
+.headerTop {
+  background-color: var(--bg-headerTop);
   padding: var(--spacing-small);
   align-items: center;
   justify-content: flex-start;
   gap: var(--spacing-small);
 }
-h3 {
+.headerBottom {
+  background-color: var(--bg-headerBottom);
+  padding: var(--spacing-small);
+}
+h1 {
   color: var(--color-white);
   font-size: 24px;
 }
+h2 {
+  color: var(--color-white);
+  font-size: 18px;
+}
 /* media query */
 @media screen and (min-width: 768px) {
-    h3 {
+    h1 {
         font-size: 34px;
+    }
+    h2 {
+      font-size: 24px;
     }
 }
 
