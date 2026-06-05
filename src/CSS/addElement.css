@@ -1,0 +1,12 @@
+.liste_box {
+  margin: var(--spacing-medium) 0 0 var(--spacing-small);
+  padding: var(--spacing-small) 100px var(--spacing-small) var(--spacing-small);
+  color: var(--color-white);
+  border-radius: 12px;
+  background-color: var(--bg-newList);
+  width: fit-content;
+  cursor: pointer;
+}
+.liste_box:hover {
+  opacity: 0.9;
+}

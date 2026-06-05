@@ -2,10 +2,12 @@
 :root {
   /* spacing */
   --spacing-small: 10px;
+  --spacing-medium: 20px;
   /* background-color */
   --bg-scheda: #6c4787;
   --bg-headerTop: #1f1f21;
   --bg-headerBottom: #4D3567;
+  --bg-newList: #7668A1;
   /* color */
   --color-white: #fff;
 }
