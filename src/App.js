@@ -1,9 +1,11 @@
-import './App.css';
+import "./App.css";
+import "./CSS/generalEroot.css";
 
 function App() {
   return (
-    <div className="App">
-     
+    <div className="App container">
+      {/* Scheda */}
+      <div className="scheda"></div>
     </div>
   );
 }

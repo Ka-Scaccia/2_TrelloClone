@@ -1,0 +1,15 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* contenuto principale */
+.container {
+  margin: 0 auto;
+  width: 95%;
+}
+.scheda {
+  background-color: #6c4787;
+  height: 100vh;
+}
