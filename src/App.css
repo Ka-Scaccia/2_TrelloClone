@@ -7,9 +7,9 @@
 /* contenuto principale */
 .container {
   margin: 0 auto;
-  width: 95%;
+  width: 100%;
 }
 .scheda {
-  background-color: #6c4787;
+  background-color: var(--bg-scheda);
   height: 100vh;
 }

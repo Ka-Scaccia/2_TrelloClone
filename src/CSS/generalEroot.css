@@ -1,5 +1,10 @@
 /* root */
 :root {
-    /* spacing */
-    --spacing-small: 10px;
+  /* spacing */
+  --spacing-small: 10px;
+  /* background-color */
+  --bg-scheda: #6c4787;
+  --bg-header: #1f1f21;
+  /* color */
+  --color-white: #fff;
 }
