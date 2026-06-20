@@ -24,15 +24,26 @@ export const AddList = ({ addList, setAddList }) => {
     setAddList((prev) => !prev);
   };
 
+  // gestione: chiusura contenitoreAggiungiListaAFTER tramite overlay
+  const closeOverlay = () => {
+    setAddList((prev) => !prev);
+  };
+
   return (
     <>
-    {/* se addList true --> appare contenitoreAggiungiListaAFTER
+      {/* se addList è mostra l'overlay altrimenti no */}
+      {/* se si clicca sull'overlay addList diventa false */}
+      <div
+        className={`overlay ${addList ? "" : "none"}`}
+        onClick={closeOverlay}
+      ></div>
+      {/* se addList true --> appare contenitoreAggiungiListaAFTER
     altrimenti se false --> appare contenitoreAggiungiListaBEFORE */}
       <div
         className={addList ? "none" : "visible"}
         id="contenitoreAggiungiListaBEFORE"
       >
-        <div className="liste_box flex">
+        <div className="liste_box flex" onClick={newList}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -48,7 +59,7 @@ export const AddList = ({ addList, setAddList }) => {
             <path d="M5 12h14" />
             <path d="M12 5v14" />
           </svg>
-          <h3 onClick={newList}>Aggiungi una lista</h3>
+          <h3>Aggiungi una lista</h3>
         </div>
       </div>
       <div
