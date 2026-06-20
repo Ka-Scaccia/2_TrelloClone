@@ -5,9 +5,13 @@
   --spacing-medium: 20px;
   /* background-color */
   --bg-scheda: #6c4787;
-  --bg-headerTop: #1f1f21;
+  --bg-black: #1f1f21;
   --bg-headerBottom: #4D3567;
   --bg-newList: #7668A1;
+  --bg-inputTextNewList: #2b2c2f;
+  --bg-celeste: #8fb8f6;
   /* color */
   --color-white: #fff;
+  --color-grey: grey;
+  --color-inputAddListFocus: #8fb8f6;
 }

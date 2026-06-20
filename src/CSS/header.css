@@ -1,5 +1,5 @@
 .headerTop {
-  background-color: var(--bg-headerTop);
+  background-color: var(--bg-black);
   padding: var(--spacing-small);
   align-items: center;
   justify-content: flex-start;

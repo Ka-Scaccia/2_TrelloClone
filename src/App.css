@@ -4,6 +4,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* generiche */
+input {
+  border: none;
+  outline: none;
+}
 /* contenuto principale */
 .container {
   margin: 0 auto;

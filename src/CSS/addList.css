@@ -1,0 +1,60 @@
+.liste_box {
+  margin: var(--spacing-medium) 0 0 var(--spacing-small);
+  padding: var(--spacing-small) 100px var(--spacing-small) var(--spacing-small);
+  color: var(--color-white);
+  border-radius: 12px;
+  background-color: var(--bg-newList);
+  width: fit-content;
+  cursor: pointer;
+}
+.liste_box:hover {
+  opacity: 0.9;
+}
+.none {
+  display: none;
+}
+.visible {
+  display: block;
+}
+.contenitoreAggiungiListaAFTER {
+  display: none;
+  background-color: var(--bg-black);
+  width: fit-content;
+  padding: var(--spacing-small);
+  flex-direction: column;
+  gap: var(--spacing-small);
+  border-radius: 12px;
+  margin: var(--spacing-medium) 0 0 var(--spacing-small);
+}
+.contenitoreAggiungiListaAFTER.flex {
+  display: flex;
+}
+.contenitoreAggiungiListaAFTER.closeContainer {
+  display: none;
+}
+.contenitoreAggiungiListaAFTER div {
+  gap: var(--spacing-small);
+  text-align: center;
+}
+.contenitoreAggiungiListaAFTER .addListBtn {
+  padding: 8px var(--spacing-small);
+  border-radius: 5px;
+  background-color: var(--bg-celeste);
+}
+.contenitoreAggiungiListaAFTER .addListText {
+  padding: 6px var(--spacing-small);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  color: var(--color-white);
+}
+.contenitoreAggiungiListaAFTER .addListText::placeholder {
+  color: var(--color-grey);
+}
+.contenitoreAggiungiListaAFTER .addListText:focus {
+  border: 2px solid var(--color-inputAddListFocus);
+}
+.contenitoreAggiungiListaAFTER .addListText:active,
+.contenitoreAggiungiListaAFTER .addListText.attivo {
+  border-radius: 5px;
+  background-color: var(--bg-inputTextNewList);
+}
