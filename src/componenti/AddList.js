@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import "../CSS/addList.css";
 import { ListItem } from "./ListItem";
 
@@ -6,7 +6,7 @@ export const AddList = ({ addList, setAddList }) => {
   /* gestione: AGGIUNGI UNA LISTA, imposto setAddList "true" così
   apparirà contenitoreAggiungiListaAFTER */
   const newListContainer = () => {
-    setAddList((prev) => !prev);
+    setAddList(true);
   };
 
   // gestione: INPUT AGGIUNGA UNA LISTA FOCUS
@@ -22,12 +22,12 @@ export const AddList = ({ addList, setAddList }) => {
   // facendo riapparire così contenitoreAggiungiListaBEFORE
   const [close, setClose] = useState(false);
   const closeContainer = () => {
-    setAddList((prev) => !prev);
+    setAddList(false);
   };
 
   // gestione: CHIUSURA contenitoreAggiungiListaAFTER tramite overlay
   const closeOverlay = () => {
-    setAddList((prev) => !prev);
+    setAddList(false);
   };
 
   // gestione NOME NUOVA LISTA
@@ -51,6 +51,11 @@ export const AddList = ({ addList, setAddList }) => {
     setIsSubmit((prev) => !prev);
     setNameList((prev) => [...prev, textNewList]);
   };
+  useLayoutEffect(() => {
+    if (nameList.length > 0) {
+      setAddList(false);
+    }
+  }, [nameList]);
   return (
     <>
       {/* liste create dall'utente: overlay, listeItem, 
@@ -119,45 +124,43 @@ export const AddList = ({ addList, setAddList }) => {
         </div>
       )}
       {/* contenitore per inserire il nome di nuova lista 
-        E' VISIBILE SE nameList.lenght < 1 */}
-      {nameList.length < 1 && (
-        <div
-          className={`contenitoreAggiungiListaAFTER ${addList ? "flex" : ""} ${close ? "closeContainer" : ""}`}
-        >
+        E' VISIBILE SE ...... */}
+      <div
+        className={`contenitoreAggiungiListaAFTER ${addList ? "flex" : ""} ${close ? "closeContainer" : ""}`}
+      >
+        <input
+          type="text"
+          placeholder="Inserisci il nome della lista..."
+          className="addListText"
+          ref={inputRef}
+          onChange={(e) => setTextNewList(e.target.value)}
+        />
+        <div className="flex">
           <input
-            type="text"
-            placeholder="Inserisci il nome della lista..."
-            className="addListText"
-            ref={inputRef}
-            onChange={(e) => setTextNewList(e.target.value)}
+            type="submit"
+            value="Aggiungi lista"
+            className="addListBtn middle cursorPOINTER"
+            onClick={newList}
           />
-          <div className="flex">
-            <input
-              type="submit"
-              value="Aggiungi lista"
-              className="addListBtn middle cursorPOINTER"
-              onClick={newList}
-            />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-x-icon lucide-x
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="lucide lucide-x-icon lucide-x
             grey middle cursorPOINTER"
-              onClick={closeContainer}
-            >
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
-            </svg>
-          </div>
+            onClick={closeContainer}
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
         </div>
-      )}
+      </div>
     </>
   );
 };
