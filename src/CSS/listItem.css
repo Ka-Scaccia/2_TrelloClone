@@ -1,0 +1,22 @@
+.nuovaLista {
+  background-color: var(--bg-black);
+  width: fit-content;
+  border-radius: 12px;
+  padding: var(--spacing-small) 60px var(--spacing-small) var(--spacing-small);
+  margin: var(--spacing-medium) 0 0 var(--spacing-small);
+}
+.titoloLista {
+  color: var(--color-white);
+}
+.contenitoreAggiungiNuovaScheda {
+  color: var(--color-grey);
+  gap: var(--spacing-small);
+  align-items: center;
+  margin-top: var(--spacing-medium);
+  border-radius: 10px;
+  padding: 2px 12px;
+}
+.contenitoreAggiungiNuovaScheda:hover {
+  color: whitesmoke;
+  background-color: var(--bg-grey);
+}
