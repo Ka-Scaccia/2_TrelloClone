@@ -4,6 +4,8 @@
   border-radius: 12px;
   padding: var(--spacing-small) 60px var(--spacing-small) var(--spacing-small);
   margin: var(--spacing-medium) 0 0 var(--spacing-small);
+  position: relative;
+  z-index: 20;
 }
 .titoloLista {
   color: var(--color-white);
