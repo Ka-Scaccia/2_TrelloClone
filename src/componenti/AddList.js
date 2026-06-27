@@ -58,16 +58,93 @@ export const AddList = ({ addList, setAddList }) => {
   }, [nameList]);
   return (
     <>
-      {/* liste create dall'utente: overlay, listeItem, 
-        contenitoreAggiungiAltraLista
+      <div className="flex">
+        {/* overlay, listeItem
         SONO VISIBILI SE L'UTENTE CREA UNA LISTA */}
-      {isSubmit && textNewList.length > 0 && (
-        <div className="flex">
+        {isSubmit && textNewList.length > 0 && (
+          <div className="flex">
+            <div
+              className={`overlay ${addList ? "" : "none"}`}
+              onClick={closeOverlay}
+            ></div>
+            <ListItem nameList={textNewList} />
+          </div>
+        )}
+        {/* contenitore per inserire il nome di nuova lista 
+        E' VISIBILE SE L'UTENTE VUOLE CREARE UNA NUOVA LISTA */}
+        <div
+          className={`contenitoreAggiungiListaAFTER ${addList ? "flex" : ""} ${close ? "closeContainer" : ""}`}
+        >
+          <input
+            type="text"
+            placeholder="Inserisci il nome della lista..."
+            className="addListText"
+            ref={inputRef}
+            onChange={(e) => setTextNewList(e.target.value)}
+          />
+          <div className="flex">
+            <input
+              type="submit"
+              value="Aggiungi lista"
+              className="addListBtn middle cursorPOINTER"
+              onClick={newList}
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-x-icon lucide-x
+            grey middle cursorPOINTER"
+              onClick={closeContainer}
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </div>
+        </div>
+
+        {/* se addList(true) mostra l'overlay altrimenti no */}
+        {/* se si clicca sull'overlay addList(false) */}
+        <div
+          className={`overlay ${addList ? "" : "none"}`}
+          onClick={closeOverlay}
+        ></div>
+        {/* contenitore per inserire una nuova lista con 0 liste create
+        E' VISIBILE SE L'ARRAY DELLE NUOVE LISTE HA LENGHT=0 */}
+        {nameList.length === 0 && (
           <div
-            className={`overlay ${addList ? "" : "none"}`}
-            onClick={closeOverlay}
-          ></div>
-          <ListItem nameList={textNewList} />
+            className={addList ? "none" : "visible"}
+            id="contenitoreAggiungiListaBEFORE"
+          >
+            <div className="liste_box flex" onClick={newListContainer}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-plus-icon lucide-plus"
+              >
+                <path d="M5 12h14" />
+                <path d="M12 5v14" />
+              </svg>
+              <h3>Aggiungi una lista</h3>
+            </div>
+          </div>
+        )}
+        {/* contenitoreAggiungiAltraLista
+        E' VISIBILE SE L'UTENTE CREA UNA LISTA */}
+        {isSubmit && textNewList.length > 0 && (
           <div className="contenitoreAggiungiAltraLista">
             <div className="liste_box flex" onClick={newListContainer}>
               <svg
@@ -88,78 +165,7 @@ export const AddList = ({ addList, setAddList }) => {
               <h3>Aggiungi un'altra lista</h3>
             </div>
           </div>
-        </div>
-      )}
-      {/* se addList è mostra l'overlay altrimenti no */}
-      {/* se si clicca sull'overlay addList diventa false */}
-      <div
-        className={`overlay ${addList ? "" : "none"}`}
-        onClick={closeOverlay}
-      ></div>
-      {/* contenitore per inserire una nuova lista con 0 liste create
-        E' VISIBILE SE L'ARRAY DELLE NUOVE LISTE HA LENGHT=0 */}
-      {nameList.length === 0 && (
-        <div
-          className={addList ? "none" : "visible"}
-          id="contenitoreAggiungiListaBEFORE"
-        >
-          <div className="liste_box flex" onClick={newListContainer}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-plus-icon lucide-plus"
-            >
-              <path d="M5 12h14" />
-              <path d="M12 5v14" />
-            </svg>
-            <h3>Aggiungi una lista</h3>
-          </div>
-        </div>
-      )}
-      {/* contenitore per inserire il nome di nuova lista 
-        E' VISIBILE SE ...... */}
-      <div
-        className={`contenitoreAggiungiListaAFTER ${addList ? "flex" : ""} ${close ? "closeContainer" : ""}`}
-      >
-        <input
-          type="text"
-          placeholder="Inserisci il nome della lista..."
-          className="addListText"
-          ref={inputRef}
-          onChange={(e) => setTextNewList(e.target.value)}
-        />
-        <div className="flex">
-          <input
-            type="submit"
-            value="Aggiungi lista"
-            className="addListBtn middle cursorPOINTER"
-            onClick={newList}
-          />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide lucide-x-icon lucide-x
-            grey middle cursorPOINTER"
-            onClick={closeContainer}
-          >
-            <path d="M18 6 6 18" />
-            <path d="m6 6 12 12" />
-          </svg>
-        </div>
+        )}
       </div>
     </>
   );
