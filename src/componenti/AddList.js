@@ -48,8 +48,10 @@ export const AddList = ({ addList, setAddList }) => {
   */
   const [nameList, setNameList] = useState([]);
   const newList = () => {
-    setIsSubmit((prev) => true);
     setNameList((prev) => [...prev, textNewList]);
+    setTextNewList("");
+    setIsSubmit((prev) => true);
+  
   };
   useLayoutEffect(() => {
     if (nameList.length > 0) {
@@ -61,7 +63,7 @@ export const AddList = ({ addList, setAddList }) => {
       <div className="flex">
         {/* overlay, listeItem
         SONO VISIBILI SE L'UTENTE CREA UNA LISTA */}
-        {isSubmit && textNewList.length > 0 && (
+        {nameList.length > 0 && (
           <div className="flex">
             <div
               className={`overlay ${addList ? "" : "none"}`}
@@ -85,6 +87,7 @@ export const AddList = ({ addList, setAddList }) => {
             placeholder="Inserisci il nome della lista..."
             className="addListText"
             ref={inputRef}
+            value={textNewList}
             onChange={(e) => setTextNewList(e.target.value)}
           />
           <div className="flex">
@@ -149,7 +152,7 @@ export const AddList = ({ addList, setAddList }) => {
         )}
         {/* contenitoreAggiungiAltraLista
         E' VISIBILE SE L'UTENTE CREA UNA LISTA */}
-        {isSubmit && textNewList.length > 0 && (
+        {nameList.length > 0 && (
           <div className="contenitoreAggiungiAltraLista">
             <div className="liste_box flex" onClick={newListContainer}>
               <svg
