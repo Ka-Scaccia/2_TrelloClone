@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import "../CSS/addList.css";
 import { ListItem } from "./ListItem";
+import { Overlay } from "./Overlay";
 
 export const AddList = ({ addList, setAddList }) => {
   /* gestione: AGGIUNGI UNA LISTA, imposto setAddList "true" così
@@ -45,14 +46,15 @@ export const AddList = ({ addList, setAddList }) => {
   che:
   -imposta setIsSubmit a true
   -aggiunge setTextNewList all'array nameList
+  -resetta nome lista catturato per prevenire bug
   */
   const [nameList, setNameList] = useState([]);
   const newList = () => {
     setNameList((prev) => [...prev, textNewList]);
     setTextNewList("");
     setIsSubmit((prev) => true);
-  
   };
+  // rende più fluida l'apparizione di nuovi div (liste)
   useLayoutEffect(() => {
     if (nameList.length > 0) {
       setAddList(false);
@@ -65,10 +67,7 @@ export const AddList = ({ addList, setAddList }) => {
         SONO VISIBILI SE L'UTENTE CREA UNA LISTA */}
         {nameList.length > 0 && (
           <div className="flex">
-            <div
-              className={`overlay ${addList ? "" : "none"}`}
-              onClick={closeOverlay}
-            ></div>
+            <Overlay addList={addList} closeOverlay={closeOverlay} />
             {/* renderizzazione liste create dall'utente */}
             <div className="listeCreate flex">
               {nameList.map((nomeLista, index) => (
@@ -78,7 +77,7 @@ export const AddList = ({ addList, setAddList }) => {
           </div>
         )}
         {/* contenitore per inserire il nome di nuova lista 
-        E' VISIBILE SE L'UTENTE VUOLE CREARE UNA NUOVA LISTA */}
+        E' VISIBILE SE ADDLIST(TRUE) */}
         <div
           className={`contenitoreAggiungiListaAFTER ${addList ? "flex" : ""} ${close ? "closeContainer" : ""}`}
         >
@@ -119,10 +118,7 @@ export const AddList = ({ addList, setAddList }) => {
 
         {/* se addList(true) mostra l'overlay altrimenti no */}
         {/* se si clicca sull'overlay addList(false) */}
-        <div
-          className={`overlay ${addList ? "" : "none"}`}
-          onClick={closeOverlay}
-        ></div>
+        <Overlay addList={addList} closeOverlay={closeOverlay} />
         {/* contenitore per inserire una nuova lista con 0 liste create
         E' VISIBILE SE L'ARRAY DELLE NUOVE LISTE HA LENGHT=0 */}
         {nameList.length === 0 && (
