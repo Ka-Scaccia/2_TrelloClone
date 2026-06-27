@@ -44,15 +44,25 @@ export const AddList = ({ addList, setAddList }) => {
   creo un array per memorizzare i nomi delle liste
   e implemento una funzione per le nuove liste aggiunte
   che:
-  -imposta setIsSubmit a true
-  -aggiunge setTextNewList all'array nameList
-  -resetta nome lista catturato per prevenire bug
+  -controlla se l'utente ha scritto qualcosa all'interno dell'input,
+  se si:
+    -imposta setIsSubmit a true
+    -aggiunge setTextNewList all'array nameList
+    -resetta nome lista catturato per prevenire bug
+  altrimenti:
+    -alert
+    -pulizia input per eventuali trim
   */
   const [nameList, setNameList] = useState([]);
   const newList = () => {
-    setNameList((prev) => [...prev, textNewList]);
-    setTextNewList("");
-    setIsSubmit((prev) => true);
+    if (textNewList.trim() === "") {
+      alert("Scrivere il nome della lista!");
+      setTextNewList("");
+    } else {
+      setNameList((prev) => [...prev, textNewList]);
+      setTextNewList("");
+      setIsSubmit((prev) => true);
+    }
   };
   // rende più fluida l'apparizione di nuovi div (liste)
   useLayoutEffect(() => {
