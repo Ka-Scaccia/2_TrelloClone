@@ -63,11 +63,13 @@ export const AddList = ({ addList, setAddList }) => {
   return (
     <>
       <div className="flex">
-        {/* overlay, listeItem
+        {/* se addList(true) mostra l'overlay altrimenti no */}
+        {/* se si clicca sull'overlay addList(false) */}
+        <Overlay addList={addList} closeOverlay={closeOverlay} />
+        {/* listeItem
         SONO VISIBILI SE L'UTENTE CREA UNA LISTA */}
         {nameList.length > 0 && (
           <div className="flex">
-            <Overlay addList={addList} closeOverlay={closeOverlay} />
             {/* renderizzazione liste create dall'utente */}
             <div className="listeCreate flex">
               {nameList.map((nomeLista, index) => (
@@ -116,9 +118,6 @@ export const AddList = ({ addList, setAddList }) => {
           </div>
         </div>
 
-        {/* se addList(true) mostra l'overlay altrimenti no */}
-        {/* se si clicca sull'overlay addList(false) */}
-        <Overlay addList={addList} closeOverlay={closeOverlay} />
         {/* contenitore per inserire una nuova lista con 0 liste create
         E' VISIBILE SE L'ARRAY DELLE NUOVE LISTE HA LENGHT=0 */}
         {nameList.length === 0 && (
