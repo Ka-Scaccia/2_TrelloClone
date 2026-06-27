@@ -62,14 +62,9 @@ export const AddList = ({ addList, setAddList }) => {
       setNameList((prev) => [...prev, textNewList]);
       setTextNewList("");
       setIsSubmit((prev) => true);
-    }
-  };
-  // rende più fluida l'apparizione di nuovi div (liste)
-  useLayoutEffect(() => {
-    if (nameList.length > 0) {
       setAddList(false);
     }
-  }, [nameList]);
+  };
   return (
     <>
       <div className="flex">
