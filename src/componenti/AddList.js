@@ -67,7 +67,12 @@ export const AddList = ({ addList, setAddList }) => {
               className={`overlay ${addList ? "" : "none"}`}
               onClick={closeOverlay}
             ></div>
-            <ListItem nameList={textNewList} />
+            {/* renderizzazione liste create dall'utente */}
+            <div className="listeCreate flex">
+              {nameList.map((nomeLista, index) => (
+                <ListItem key={index} name={nomeLista} />
+              ))}
+            </div>
           </div>
         )}
         {/* contenitore per inserire il nome di nuova lista 

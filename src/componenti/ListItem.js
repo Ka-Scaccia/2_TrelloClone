@@ -1,10 +1,10 @@
 import "../CSS/listItem.css";
 
-export const ListItem = ({ nameList }) => {
+export const ListItem = ({ name }) => {
   return (
     <>
       <div className="nuovaLista">
-        <h3 className="titoloLista">{nameList}</h3>
+        <h3 className="titoloLista">{name}</h3>
         <div
           className="contenitoreAggiungiNuovaScheda flex
         cursorPOINTER"
