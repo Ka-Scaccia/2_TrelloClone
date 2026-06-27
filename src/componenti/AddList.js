@@ -48,7 +48,7 @@ export const AddList = ({ addList, setAddList }) => {
   */
   const [nameList, setNameList] = useState([]);
   const newList = () => {
-    setIsSubmit((prev) => !prev);
+    setIsSubmit((prev) => true);
     setNameList((prev) => [...prev, textNewList]);
   };
   useLayoutEffect(() => {
