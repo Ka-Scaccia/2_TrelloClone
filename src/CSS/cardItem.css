@@ -1,0 +1,12 @@
+.card {
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--color-white);
+    margin: var(--spacing-small) 0;
+    padding: var(--spacing-small);
+    background-color: var(--bg-grey);
+    border-radius: 16px;
+}
+.card .box1 {
+    gap: var(--spacing-small);
+}

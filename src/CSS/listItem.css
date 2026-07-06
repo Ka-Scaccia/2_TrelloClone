@@ -2,7 +2,7 @@
   background-color: var(--bg-black);
   width: fit-content;
   border-radius: 12px;
-  padding: var(--spacing-small) 60px var(--spacing-small) var(--spacing-small);
+  padding: var(--spacing-small);
   margin: var(--spacing-medium) 0 0 var(--spacing-small);
   position: relative;
   z-index: 20;
@@ -10,7 +10,7 @@
 .titoloLista {
   color: var(--color-white);
 }
-.contenitoreAggiungiNuovaScheda {
+.contenitoreAggiungiNuovaSchedaBEFORE {
   color: var(--color-grey);
   gap: var(--spacing-small);
   align-items: center;
@@ -18,7 +18,41 @@
   border-radius: 10px;
   padding: 2px 12px;
 }
-.contenitoreAggiungiNuovaScheda:hover {
+.contenitoreAggiungiNuovaSchedaBEFORE.none {
+  display: none;
+}
+.contenitoreAggiungiNuovaSchedaBEFORE:hover {
   color: whitesmoke;
   background-color: var(--bg-grey);
+}
+.aggiungiNuovaSchedaAFTER {
+  display: none;
+}
+.aggiungiNuovaSchedaAFTER.flex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  margin-top: var(--spacing-small);
+}
+.aggiungiNuovaSchedaAFTER.none {
+  display: none;
+}
+.aggiungiNuovaSchedaAFTER input[type="text"] {
+  padding: 6px var(--spacing-small);
+  border-radius: 5px;
+  color: var(--color-white);
+  background-color: var(--bg-grey);
+  height: 4vh;
+}
+.aggiungiNuovaSchedaAFTER input[type="submit"] {
+  padding: 8px var(--spacing-small);
+  border-radius: 5px;
+  background-color: var(--bg-celeste);
+}
+.aggiungiNuovaSchedaAFTER .cardBottom {
+  justify-content: space-between;
+  margin-top: var(--spacing-small);
+}
+.cards {
+  margin-bottom: var(--spacing-medium);
 }

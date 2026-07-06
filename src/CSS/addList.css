@@ -20,6 +20,7 @@
   display: none;
   background-color: var(--bg-black);
   width: fit-content;
+  height: fit-content;
   padding: var(--spacing-small);
   flex-direction: column;
   gap: var(--spacing-small);
@@ -63,4 +64,7 @@
 .contenitoreAggiungiAltraLista .liste_box {
   position: relative;
   z-index: 20;
+}
+.nuovaLista {
+  height: fit-content;
 }

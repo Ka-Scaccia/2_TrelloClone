@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useLayoutEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../CSS/addList.css";
 import { ListItem } from "./ListItem";
 import { Overlay } from "./Overlay";
@@ -70,7 +70,7 @@ export const AddList = ({ addList, setAddList }) => {
       <div className="flex">
         {/* se addList(true) mostra l'overlay altrimenti no */}
         {/* se si clicca sull'overlay addList(false) */}
-        <Overlay addList={addList} closeOverlay={closeOverlay} />
+        <Overlay isVisible={addList} onClose={closeOverlay} />
         {/* listeItem
         SONO VISIBILI SE L'UTENTE CREA UNA LISTA */}
         {nameList.length > 0 && (

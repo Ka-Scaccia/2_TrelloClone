@@ -1,11 +1,11 @@
 import "../CSS/overlay.css";
 
-export const Overlay = ({ addList, closeOverlay }) => {
+export const Overlay = ({ isVisible, onClose }) => {
   return (
     <>
       <div
-        className={`overlay ${addList ? "" : "none"}`}
-        onClick={closeOverlay}
+        className={`overlay ${isVisible ? "" : "none"}`}
+        onClick={onClose}
       ></div>
     </>
   );
