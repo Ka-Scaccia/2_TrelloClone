@@ -16,7 +16,7 @@
 .visible {
   display: block;
 }
-.contenitoreAggiungiListaAFTER {
+.aggiungiListaAFTER {
   display: none;
   background-color: var(--bg-black);
   width: fit-content;
@@ -29,39 +29,39 @@
   position: relative;
   z-index: 20;
 }
-.contenitoreAggiungiListaAFTER.flex {
+.aggiungiListaAFTER.flex {
   display: flex;
 }
-.contenitoreAggiungiListaAFTER.closeContainer {
+.aggiungiListaAFTER.closeContainer {
   display: none;
 }
-.contenitoreAggiungiListaAFTER div {
+.aggiungiListaAFTER div {
   gap: var(--spacing-small);
   text-align: center;
 }
-.contenitoreAggiungiListaAFTER .addListBtn {
+.aggiungiListaAFTER .addListBtn {
   padding: 8px var(--spacing-small);
   border-radius: 5px;
   background-color: var(--bg-celeste);
 }
-.contenitoreAggiungiListaAFTER .addListText {
+.aggiungiListaAFTER .addListText {
   padding: 6px var(--spacing-small);
   border: 2px solid transparent;
   border-radius: 5px;
   color: var(--color-white);
 }
-.contenitoreAggiungiListaAFTER .addListText::placeholder {
+.aggiungiListaAFTER .addListText::placeholder {
   color: var(--color-grey);
 }
-.contenitoreAggiungiListaAFTER .addListText:focus {
+.aggiungiListaAFTER .addListText:focus {
   border: 2px solid var(--color-inputAddListFocus);
 }
-.contenitoreAggiungiListaAFTER .addListText:active,
-.contenitoreAggiungiListaAFTER .addListText.attivo {
+.aggiungiListaAFTER .addListText:active,
+.aggiungiListaAFTER .addListText.attivo {
   border-radius: 5px;
   background-color: var(--bg-inputTextNewList);
 }
-.contenitoreAggiungiAltraLista .liste_box {
+.aggiungiAltraLista .liste_box {
   position: relative;
   z-index: 20;
 }
