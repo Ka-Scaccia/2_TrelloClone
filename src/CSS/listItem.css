@@ -9,6 +9,7 @@
 }
 .titoloLista {
   color: var(--color-white);
+  padding-bottom: var(--spacing-small);
 }
 .contenitoreAggiungiNuovaSchedaBEFORE {
   color: var(--color-grey);
@@ -55,4 +56,6 @@
 }
 .cards {
   margin-bottom: var(--spacing-medium);
+  max-height: 60vh;
+  overflow: auto;
 }
