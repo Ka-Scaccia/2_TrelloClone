@@ -32,10 +32,7 @@
 .aggiungiListaAFTER.flex {
   display: flex;
 }
-.aggiungiListaAFTER.closeContainer {
-  display: none;
-}
-.aggiungiListaAFTER div {
+.aggiungiListaAFTER .listActions {
   gap: var(--spacing-small);
   text-align: center;
 }

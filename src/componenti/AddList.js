@@ -76,7 +76,7 @@ export const AddList = ({ addList, setAddList }) => {
             value={newListName}
             onChange={(e) => setNewListName(e.target.value)}
           />
-          <div className="flex">
+          <div className="listActions flex">
             <input
               type="submit"
               value="Aggiungi lista"
