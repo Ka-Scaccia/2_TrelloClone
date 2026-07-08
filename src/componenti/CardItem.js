@@ -4,7 +4,7 @@ export const CardItem = ({ text }) => {
   return (
     <>
       <div className="card flex">
-        <div className="box1 flex">
+        <div className="card_left flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -21,7 +21,7 @@ export const CardItem = ({ text }) => {
           </svg>
           <h3>{text}</h3>
         </div>
-        <div className="box2">
+        <div className="card_right">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

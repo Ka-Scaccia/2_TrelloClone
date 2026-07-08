@@ -7,6 +7,6 @@
     background-color: var(--bg-grey);
     border-radius: 16px;
 }
-.card .box1 {
+.card .card_left {
     gap: var(--spacing-small);
 }
