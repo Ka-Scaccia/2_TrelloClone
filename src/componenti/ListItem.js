@@ -4,125 +4,98 @@ import { Overlay } from "./Overlay";
 import { CardItem } from "./CardItem";
 
 export const ListItem = ({ name }) => {
-  // gestione visibilità testo: "+ Aggiungi una scheda"
-  // aggiunta di una nuova card
-  const [isClickedCard, setIsClickedCard] = useState(false);
-  const [newCard, setNewCard] = useState(false);
-  const [isClickedBtn, setIsClickedBtn] = useState(false);
+  /* variabile useState per uso globale file ; testo nuova scheda
+  ; array nomi schede ; input focus ; scroll forzato bottom */
+  const [isComposerOpen, setIsComposerOpen] = useState(false);
+  const [textNewCard, setTextNewCard] = useState("");
   const [cardList, setCardList] = useState([]);
-  const [isVisibleBtnCard, setIsVisibleBtnCard] = useState(true);
+  const inputRef = useRef(null);
+  const cardsEndRef = useRef(null);
 
-  const cardClicked = () => {
-    setIsClickedCard(true);
-    setNewCard(true);
-    setIsVisibleBtnCard(true);
+  const openComposer = () => setIsComposerOpen(true);
+  const closeComposer = () => {
+    setTextNewCard("");
+    setIsComposerOpen(false);
   };
 
-  // gestione focus input per aggiungere nuova card
-  const inputRef = useRef(null);
-  useEffect(() => {
-    if (newCard && isVisibleBtnCard && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [newCard, isVisibleBtnCard]);
+  // funzione: aggiungi nuova scheda
+  const addCard = () => {
+    const trimmedText = textNewCard.trim();
 
-  // gestione testo scritto nell'input nuova card
-  const [textNewCard, setTextNewCard] = useState("");
-
-  // gestione chiusura contenitoreAggiungiNuovaSchedaAFTER
-  // tramite overlay e icona "X"
-  const closeCardInput = () => {
-    if (cardList.length > 0) {
+    if (!trimmedText) {
+      alert("Scrivere qualcosa!");
       return;
     }
 
-    setIsClickedCard(false);
-    setNewCard(false);
-    setIsVisibleBtnCard(false);
+    setCardList((prev) => [...prev, trimmedText]);
     setTextNewCard("");
+    setIsComposerOpen(false);
   };
 
+  // controllo visibilità overlay
   const handleOverlayClick = () => {
     if (cardList.length > 0) {
       return;
     }
 
-    closeCardInput();
+    closeComposer();
   };
 
-  // gestione click sul btn "Aggiungi scheda"
-  // creazione array per le cards
-  // visualizzazione btn "Aggiungi scheda"
-  const btnClicked = () => {
-    if (textNewCard.trim() === "") {
-      alert("Scrivere qualcosa!");
-      return;
-    }
-
-    setIsClickedBtn(true);
-    setCardList((prev) => [...prev, textNewCard]);
-    setTextNewCard("");
-    setIsClickedCard(false);
-    setNewCard(true);
-    setIsVisibleBtnCard(false);
-  };
-
-  // gestione scroll in fondo al contenitore delle schede automatico
-  // la funzione verrà attivata ogni volta che l'array cardList cambia
-  const cardsEndRef = useRef(null);
-  const scrollToBottom = () => {
-    cardsEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
+  // input focus
   useEffect(() => {
-    scrollToBottom();
+    if (isComposerOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isComposerOpen]);
+
+  // scroll forzato bottom
+  useEffect(() => {
+    cardsEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [cardList]);
 
   return (
     <>
-      <Overlay isVisible={newCard} onClose={handleOverlayClick} />
-      <div className="nuovaLista">
-        <h3 className="titoloLista">{name}</h3>
-        {/* se l'array delle card ha lunghezza > 0
-            renderizza */}
+      <Overlay isVisible={isComposerOpen} onClose={handleOverlayClick} />
+      {/* lista */}
+      <div className="lista">
+        <h3 className="lista_titolo">{name}</h3>
+        {/* elenco schede */}
         <div className="cards">
           {cardList.length > 0 &&
             cardList.map((nomeCard, index) => (
               <CardItem key={index} text={nomeCard} />
             ))}
-          {/* scroll forzato verso il basso */}
           <div ref={cardsEndRef}></div>
         </div>
-        {/* PRIMA di cliccare "Aggiungi una scheda" */}
-        <div
-          onClick={cardClicked}
-          className={`contenitoreAggiungiNuovaSchedaBEFORE flex cursorPOINTER ${isClickedCard ? "none" : ""}
-          ${!isVisibleBtnCard ? "flex" : ""}`}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide lucide-plus-icon lucide-plus
-            "
+        {/* se isComposerOpen(false) mostra la schermata di default
+        per aggiungere una scheda */}
+        {!isComposerOpen && (
+          <div
+            onClick={openComposer}
+            className="aggiungiNuovaSchedaBEFORE flex cursorPOINTER"
           >
-            <path d="M5 12h14" />
-            <path d="M12 5v14" />
-          </svg>
-          <h4>Aggiungi una scheda</h4>
-        </div>
-        {/* DOPO aver cliccato aggiungi una scheda */}
-        <div
-          className={`aggiungiNuovaSchedaAFTER cursorPOINTER ${newCard ? "flex" : ""}
-          `}
-        >
-          <div className={`${!isVisibleBtnCard ? "none" : ""}`}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-plus-icon lucide-plus"
+            >
+              <path d="M5 12h14" />
+              <path d="M12 5v14" />
+            </svg>
+            <h4>Aggiungi una scheda</h4>
+          </div>
+        )}
+        {/* se isComposerOpen(true) mostra la schermata per inserire il
+        nome di una nuova scheda */}
+        {isComposerOpen && (
+          <div className="aggiungiNuovaSchedaAFTER cursorPOINTER">
             <input
               ref={inputRef}
               type="text"
@@ -135,31 +108,29 @@ export const ListItem = ({ name }) => {
                 type="submit"
                 value="Aggiungi scheda"
                 className="cursorPOINTER"
-                onClick={btnClicked}
+                onClick={addCard}
               />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={`lucide lucide-x-icon lucide-x grey middle cursorPOINTER ${isVisibleBtnCard && cardList.length === 0 ? "" : "none"}`}
-                onClick={
-                  isVisibleBtnCard && cardList.length === 0
-                    ? closeCardInput
-                    : undefined
-                }
-              >
-                <path d="M18 6 6 18" />
-                <path d="m6 6 12 12" />
-              </svg>
+              {cardList.length === 0 && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-x-icon lucide-x grey middle cursorPOINTER"
+                  onClick={closeComposer}
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+              )}
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );

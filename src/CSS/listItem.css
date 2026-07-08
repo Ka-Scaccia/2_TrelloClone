@@ -1,4 +1,4 @@
-.nuovaLista {
+.lista {
   background-color: var(--bg-black);
   width: fit-content;
   border-radius: 12px;
@@ -7,11 +7,11 @@
   position: relative;
   z-index: 20;
 }
-.titoloLista {
+.lista_titolo {
   color: var(--color-white);
   padding-bottom: var(--spacing-small);
 }
-.contenitoreAggiungiNuovaSchedaBEFORE {
+.aggiungiNuovaSchedaBEFORE {
   color: var(--color-grey);
   gap: var(--spacing-small);
   align-items: center;
@@ -19,10 +19,10 @@
   border-radius: 10px;
   padding: 2px 12px;
 }
-.contenitoreAggiungiNuovaSchedaBEFORE.none {
+.aggiungiNuovaSchedaBEFORE.none {
   display: none;
 }
-.contenitoreAggiungiNuovaSchedaBEFORE:hover {
+.aggiungiNuovaSchedaBEFORE:hover {
   color: whitesmoke;
   background-color: var(--bg-grey);
 }
