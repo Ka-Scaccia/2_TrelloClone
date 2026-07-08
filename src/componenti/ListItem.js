@@ -5,7 +5,7 @@ import { CardItem } from "./CardItem";
 
 export const ListItem = ({ name }) => {
   // gestione visibilità testo: "+ Aggiungi una scheda"
-  // ; aggiunta di una nuova card
+  // aggiunta di una nuova card
   const [isClickedCard, setIsClickedCard] = useState(false);
   const [newCard, setNewCard] = useState(false);
   const [isClickedBtn, setIsClickedBtn] = useState(false);
@@ -67,6 +67,17 @@ export const ListItem = ({ name }) => {
     setIsVisibleBtnCard(false);
   };
 
+  // gestione scroll in fondo al contenitore delle schede automatico
+  // la funzione verrà attivata ogni volta che l'array cardList cambia
+  const cardsEndRef = useRef(null);
+  const scrollToBottom = () => {
+    cardsEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [cardList]);
+
   return (
     <>
       <Overlay isVisible={newCard} onClose={handleOverlayClick} />
@@ -79,6 +90,8 @@ export const ListItem = ({ name }) => {
             cardList.map((nomeCard, index) => (
               <CardItem key={index} text={nomeCard} />
             ))}
+          {/* scroll forzato verso il basso */}
+          <div ref={cardsEndRef}></div>
         </div>
         {/* PRIMA di cliccare "Aggiungi una scheda" */}
         <div
@@ -109,9 +122,7 @@ export const ListItem = ({ name }) => {
           className={`aggiungiNuovaSchedaAFTER cursorPOINTER ${newCard ? "flex" : ""}
           `}
         >
-          <div
-            className={`${!isVisibleBtnCard ? "none" : ""}`}
-          >
+          <div className={`${!isVisibleBtnCard ? "none" : ""}`}>
             <input
               ref={inputRef}
               type="text"
