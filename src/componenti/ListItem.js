@@ -8,7 +8,7 @@ export const ListItem = ({ name }) => {
   ; array nomi schede ; input focus ; scroll forzato bottom */
   const [isComposerOpen, setIsComposerOpen] = useState(false);
   const [textNewCard, setTextNewCard] = useState("");
-  const [cardList, setCardList] = useState([]);
+  const [cardList, setCardList] = useState({});
   const inputRef = useRef(null);
   const cardsEndRef = useRef(null);
 
@@ -27,7 +27,14 @@ export const ListItem = ({ name }) => {
       return;
     }
 
-    setCardList((prev) => [...prev, trimmedText]);
+    const id = Date.now().toString();
+    setCardList((prev) => ({
+      ...prev,
+      [id]: {
+        text: trimmedText,
+        check: false,
+      },
+    }));
     setTextNewCard("");
     setIsComposerOpen(false);
   };
@@ -61,9 +68,9 @@ export const ListItem = ({ name }) => {
         <h3 className="lista_titolo">{name}</h3>
         {/* elenco schede */}
         <div className="cards">
-          {cardList.length > 0 &&
-            cardList.map((nomeCard, index) => (
-              <CardItem key={index} text={nomeCard} />
+          {Object.keys(cardList).length > 0 &&
+            Object.entries(cardList).map(([id, card]) => (
+              <CardItem key={id} text={card.text} state={card.check} />
             ))}
           <div ref={cardsEndRef}></div>
         </div>

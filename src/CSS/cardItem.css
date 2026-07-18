@@ -1,12 +1,29 @@
 .card {
-    flex-direction: row;
-    justify-content: space-between;
-    color: var(--color-white);
-    margin: var(--spacing-small) 0;
-    padding: var(--spacing-small);
-    background-color: var(--bg-grey);
-    border-radius: 16px;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--color-white);
+  margin: var(--spacing-small) 0;
+  padding: var(--spacing-small);
+  background-color: var(--bg-grey);
+  border-radius: 16px;
+}
+.card.none {
+    display: none;
 }
 .card .card_left {
-    gap: var(--spacing-small);
+  gap: var(--spacing-small);
+}
+.iconChecked {
+  display: none;
+}
+.iconChecked.flex,
+.iconNoCheked.flex {
+  display: flex;
+}
+.iconChecked.none,
+.iconNoCheked.none {
+  display: none;
+}
+.textCard.lineThrough {
+  text-decoration: line-through;
 }
