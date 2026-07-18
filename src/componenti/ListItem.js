@@ -95,7 +95,7 @@ export const ListItem = ({ name }) => {
         {/* se isComposerOpen(true) mostra la schermata per inserire il
         nome di una nuova scheda */}
         {isComposerOpen && (
-          <div className="aggiungiNuovaSchedaAFTER cursorPOINTER">
+          <div className="aggiungiNuovaSchedaAFTER flex cursorPOINTER">
             <input
               ref={inputRef}
               type="text"

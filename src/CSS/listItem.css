@@ -9,7 +9,6 @@
 }
 .lista_titolo {
   color: var(--color-white);
-  padding-bottom: var(--spacing-small);
 }
 .aggiungiNuovaSchedaBEFORE {
   color: var(--color-grey);
@@ -52,7 +51,6 @@
 }
 .aggiungiNuovaSchedaAFTER .cardBottom {
   justify-content: space-between;
-  margin-top: var(--spacing-small);
 }
 .cards {
   margin-bottom: var(--spacing-medium);
