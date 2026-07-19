@@ -8,8 +8,9 @@
   border-radius: 16px;
 }
 .card.none {
-    display: none;
+  display: none;
 }
+/* RISOLVERE BUG RELATIVO A TESTO TROPPO LUNGO NELLA SCHEDA */
 .card .card_left {
   gap: var(--spacing-small);
 }
@@ -23,6 +24,12 @@
 .iconChecked.none,
 .iconNoCheked.none {
   display: none;
+}
+.textCard {
+  max-width: 180px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .textCard.lineThrough {
   text-decoration: line-through;
