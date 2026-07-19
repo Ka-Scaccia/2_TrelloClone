@@ -49,7 +49,7 @@ export const AddList = ({ addList, setAddList }) => {
   };
   return (
     <>
-      <div className="flex">
+      <div className="liste flex">
         {/* OVERLAY */}
         {/* se addList(true) mostra l'overlay altrimenti no */}
         {/* se si clicca sull'overlay addList(false) */}

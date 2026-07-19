@@ -65,4 +65,12 @@
 .nuovaLista {
   height: fit-content;
 }
-
+.liste {
+  width: 100%; 
+  max-width: 100vw; 
+  flex-wrap: nowrap;
+  overflow-x: auto; 
+}
+.liste::-webkit-scrollbar {
+  display: none;
+}
