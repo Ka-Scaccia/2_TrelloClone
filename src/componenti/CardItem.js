@@ -53,7 +53,7 @@ export const CardItem = ({ text, state }) => {
             <circle cx="12" cy="12" r="10" />
             <path d="m9 12 2 2 4-4" />
           </svg>
-          <h3 className={`textCard ${isChecked ? "lineThrough" : ""}`}>
+          <h3 className={`textCard ${isChecked ? "taskDone" : ""}`}>
             {text}
           </h3>
         </div>

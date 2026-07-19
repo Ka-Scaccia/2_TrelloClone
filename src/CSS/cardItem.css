@@ -38,6 +38,7 @@
   overflow-wrap: anywhere;
   word-break: break-word;
 }
-.textCard.lineThrough {
+.textCard.taskDone {
   text-decoration: line-through;
+  color: grey;
 }
