@@ -8,7 +8,7 @@ export const ListItem = ({ name }) => {
   ; array nomi schede ; input focus ; scroll forzato bottom */
   const [isComposerOpen, setIsComposerOpen] = useState(false);
   const [textNewCard, setTextNewCard] = useState("");
-  const [cardList, setCardList] = useState({});
+  const [cardList, setCardList] = useState([]);
   const inputRef = useRef(null);
   const cardsEndRef = useRef(null);
 
@@ -28,13 +28,7 @@ export const ListItem = ({ name }) => {
     }
 
     const id = Date.now().toString();
-    setCardList((prev) => ({
-      ...prev,
-      [id]: {
-        text: trimmedText,
-        check: false,
-      },
-    }));
+    setCardList((prev) => [...prev, { id, text: trimmedText, check: false }]);
     setTextNewCard("");
     setIsComposerOpen(false);
   };
@@ -60,6 +54,20 @@ export const ListItem = ({ name }) => {
     cardsEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [cardList]);
 
+  // eliminazione scheda
+  const deleteCard = (id) => {
+    setCardList((prev) => prev.filter((card) => card.id !== id));
+  };
+
+  // gestione check
+  const toggleCard = (id) => {
+    setCardList((prev) =>
+      prev.map((card) =>
+        card.id === id ? { ...card, check: !card.check } : card,
+      ),
+    );
+  };
+
   return (
     <>
       <Overlay isVisible={isComposerOpen} onClose={handleOverlayClick} />
@@ -70,7 +78,13 @@ export const ListItem = ({ name }) => {
         <div className="cards">
           {Object.keys(cardList).length > 0 &&
             Object.entries(cardList).map(([id, card]) => (
-              <CardItem key={id} text={card.text} state={card.check} />
+              <CardItem
+                key={card.id}
+                text={card.text}
+                state={card.check}
+                onDelete={() => deleteCard(card.id)}
+                onToggle={() => toggleCard(card.id)}
+              />
             ))}
           <div ref={cardsEndRef}></div>
         </div>
