@@ -1,6 +1,6 @@
 import "../CSS/listItem.css";
 import { useEffect, useRef, useState } from "react";
-import { Plus, X } from "lucide";
+import { Plus, X } from "lucide-react";
 import { Overlay } from "./Overlay";
 import { CardItem } from "./CardItem";
 

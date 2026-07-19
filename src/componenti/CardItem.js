@@ -1,18 +1,7 @@
 import "../CSS/cardItem.css";
-import { useState } from "react";
-import { Circle, CircleCheckBig, Trash } from "lucide";
+import { Circle, CircleCheckBig, Trash } from "lucide-react";
 
 export const CardItem = ({ text, state, onDelete, onToggle }) => {
-  // gestione check e uncheck
-  const [isChecked, setIsChecked] = useState(state);
-  const getCheck = () => {
-    setIsChecked(!isChecked);
-  };
-  // gestione delete
-  const [isDelete, setIsDelete] = useState();
-  const getDelete = () => {
-    setIsDelete(true);
-  };
   return (
     <>
       <div className="card flex">
