@@ -1,12 +1,1 @@
-.flex {
-    display: flex;
-}
-.middle {
-    vertical-align: middle;
-}
-.grey {
-    color: var(--color-grey);
-}
-.cursorPOINTER {
-    cursor: pointer;
-}
+.flex{display:flex}.middle{vertical-align:middle}.grey{color:var(--color-grey)}.cursorPOINTER{cursor:pointer}
