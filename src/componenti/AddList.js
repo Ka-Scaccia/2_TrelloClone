@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { X, Plus } from "lucide";
+import { X, Plus } from "lucide-react";
 import "../CSS/addList.css";
 import { ListItem } from "./ListItem";
 import { Overlay } from "./Overlay";
