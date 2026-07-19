@@ -1,1 +1,27 @@
-*{margin:0;padding:0;box-sizing:border-box}input{border:none;outline:none}.container{margin:0 auto;width:100%}.scheda{background:linear-gradient(90deg,rgba(95,68,137,1) 0%,rgba(141,77,133,1) 56%);height:100vh}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input {
+  border: none;
+  outline: none;
+}
+.container {
+  margin: 0 auto;
+  width: 100%;
+}
+.scheda {
+  background: linear-gradient(
+    90deg,
+    rgba(95, 68, 137, 1) 0%,
+    rgba(141, 77, 133, 1) 56%
+  );
+  height: 100vh;
+}
+.footer {
+    color: var(--color-white);
+    position: absolute;
+    bottom: 10px;
+    left: 4px;
+}
