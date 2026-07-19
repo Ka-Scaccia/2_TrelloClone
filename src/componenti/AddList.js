@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { X, Plus } from "lucide";
 import "../CSS/addList.css";
 import { ListItem } from "./ListItem";
 import { Overlay } from "./Overlay";
@@ -83,23 +84,11 @@ export const AddList = ({ addList, setAddList }) => {
               className="addListBtn middle cursorPOINTER"
               onClick={handleAddList}
             />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-x-icon lucide-x
-              grey middle cursorPOINTER"
+            <X
+              size={24}
+              className="grey middle cursorPOINTER"
               onClick={handleCloseListCreator}
-            >
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
-            </svg>
+            />
           </div>
         </div>
 
@@ -110,21 +99,7 @@ export const AddList = ({ addList, setAddList }) => {
             className={`aggiungiListaBEFORE ${addList ? "none" : "visible"}`}
           >
             <div className="liste_box flex" onClick={handleOpenListCreator}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-plus-icon lucide-plus"
-              >
-                <path d="M5 12h14" />
-                <path d="M12 5v14" />
-              </svg>
+              <Plus size={24} />
               <h3>Aggiungi una lista</h3>
             </div>
           </div>
@@ -134,21 +109,7 @@ export const AddList = ({ addList, setAddList }) => {
         {listNames.length > 0 && (
           <div className="aggiungiAltraLista">
             <div className="liste_box flex" onClick={handleOpenListCreator}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-plus-icon lucide-plus"
-              >
-                <path d="M5 12h14" />
-                <path d="M12 5v14" />
-              </svg>
+              <Plus size={24} />
               <h3>Aggiungi un'altra lista</h3>
             </div>
           </div>

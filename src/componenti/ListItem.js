@@ -1,5 +1,6 @@
 import "../CSS/listItem.css";
 import { useEffect, useRef, useState } from "react";
+import { Plus, X } from "lucide";
 import { Overlay } from "./Overlay";
 import { CardItem } from "./CardItem";
 
@@ -95,21 +96,7 @@ export const ListItem = ({ name }) => {
             onClick={openComposer}
             className="aggiungiNuovaSchedaBEFORE flex cursorPOINTER"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-plus-icon lucide-plus"
-            >
-              <path d="M5 12h14" />
-              <path d="M12 5v14" />
-            </svg>
+            <Plus size={24} />
             <h4>Aggiungi una scheda</h4>
           </div>
         )}
@@ -132,22 +119,11 @@ export const ListItem = ({ name }) => {
                 onClick={addCard}
               />
               {cardList.length === 0 && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-x-icon lucide-x grey middle cursorPOINTER"
+                <X
+                  size={24}
+                  className="grey middle cursorPOINTER"
                   onClick={closeComposer}
-                >
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
+                />
               )}
             </div>
           </div>
