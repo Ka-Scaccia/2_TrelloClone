@@ -10,9 +10,11 @@
 .card.none {
   display: none;
 }
-/* RISOLVERE BUG RELATIVO A TESTO TROPPO LUNGO NELLA SCHEDA */
 .card .card_left {
   gap: var(--spacing-small);
+}
+.card .card_right {
+  margin-left: var(--spacing-small);
 }
 .iconChecked {
   display: none;
