@@ -12,18 +12,25 @@
 h1 {
   color: var(--color-white);
   font-size: 24px;
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 h2 {
   color: var(--color-white);
   font-size: 18px;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }
 /* media query */
 @media screen and (min-width: 768px) {
-    h1 {
-        font-size: 34px;
-    }
-    h2 {
-      font-size: 24px;
-    }
+  h1 {
+    font-size: 34px;
+  }
+  h2 {
+    font-size: 24px;
+  }
 }
-

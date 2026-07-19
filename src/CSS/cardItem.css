@@ -37,6 +37,10 @@
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
+   font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 .textCard.taskDone {
   text-decoration: line-through;
