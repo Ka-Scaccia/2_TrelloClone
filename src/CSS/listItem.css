@@ -1,6 +1,6 @@
 .lista {
   background-color: var(--bg-black);
-  width: fit-content;
+  width: 240px;
   height: fit-content;
   border-radius: 12px;
   padding: var(--spacing-small);

@@ -16,19 +16,24 @@
 .card .card_right {
   margin-left: var(--spacing-small);
 }
-.iconChecked {
+.iconChecked,
+.iconNoChecked {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  flex-shrink: 0;
   display: none;
 }
 .iconChecked.flex,
-.iconNoCheked.flex {
+.iconNoChecked.flex {
   display: flex;
 }
 .iconChecked.none,
-.iconNoCheked.none {
+.iconNoChecked.none {
   display: none;
 }
 .textCard {
-  max-width: 180px;
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
